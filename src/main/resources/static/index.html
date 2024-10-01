@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items</title>
+</head>
+<body>
+<h1>Items List</h1>
+<ul id="items-list"></ul>
+
+<script>
+    fetch('/items')
+        .then(response => response.json())
+        .then(items => {
+            const list = document.getElementById('items-list');
+            items.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name}: ${item.priority}`;
+                list.appendChild(listItem);
+            });
+        });
+</script>
+</body>
+</html>
