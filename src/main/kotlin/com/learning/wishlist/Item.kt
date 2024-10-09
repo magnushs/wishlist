@@ -11,7 +11,10 @@ data class Item(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long,
     var name: String,
-    var priority: Int
+    var need: Int,
+    var want: Int,
+    var likelyToUse: Int,
+    val price: Double
 ) {
-    constructor(): this(0, "dummyName", 0)
+    constructor(): this(0, "dummyName", 0, 0, 0, 0.0)
 }

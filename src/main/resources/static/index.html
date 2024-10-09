@@ -5,7 +5,19 @@
 </head>
 <body>
 <h1>Items List</h1>
-<ul id="items-list"></ul>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Need</th>
+        <th>Want</th>
+        <th>Likely To Use</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody id="items-list"></tbody>
+</table>
 
 <script>
     fetch('/items')
@@ -13,9 +25,16 @@
         .then(items => {
             const list = document.getElementById('items-list');
             items.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${item.name}: ${item.priority}`;
-                list.appendChild(listItem);
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>${item.need}</td>
+                    <td>${item.want}</td>
+                    <td>${item.likelyToUse}</td>
+                    <td>${item.price}</td>
+                `;
+                list.appendChild(row);
             });
         });
 </script>
