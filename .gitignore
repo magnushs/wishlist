@@ -26,3 +26,6 @@ replay_pid*
 build/
 !**/src/**/build
 !**/test/**/build
+
+.gradle/
+.idea/
